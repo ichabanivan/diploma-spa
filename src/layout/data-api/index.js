@@ -1,28 +1,26 @@
 
 // outsource dependencies
 import moment from 'moment';
-import { useParams } from 'react-router-dom';
 import React, { memo, useCallback, useEffect } from 'react';
 import { CardText, CardTitle, Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap';
 
 // local dependencies
 import controller from './controller';
-import CardNews from '../../../components/card-news';
-import AlertError from '../../../components/alert-error';
-import { useController } from '../../../services/controller';
-import { BoxLoader, Spinner } from '../../../components/preloader';
+import CardNews from 'components/card-news';
+import AlertError from 'components/alert-error';
+import { useController } from 'services/controller';
+import { BoxLoader, Spinner } from 'components/preloader';
 
 // configure
 
 export default memo(() => {
-  const { category } = useParams();
   const [
     { initialized, disabled, errorMessage, list, aside },
     { initialize, clearCtrl, updateCtrl },
     isControllerConnected,
   ] = useController(controller);
 
-  useEffect(() => initialize({ category }) && clearCtrl, [category, clearCtrl, initialize]);
+  useEffect(() => initialize() && clearCtrl, [clearCtrl, initialize]);
 
   const clearError = useCallback(() => updateCtrl({ errorMessage: null }), [updateCtrl]);
 
@@ -31,7 +29,7 @@ export default memo(() => {
     <Container>
       <Row className="mb-3 py-3">
         <Col xs="8" tag="h1" className="mb-0 text-capitalize">
-          { category }
+          Data from API
           { disabled ? <Spinner active /> : null }
         </Col>
         <Col xs="4" tag="p" className="mb-0 d-flex align-items-center justify-content-end">

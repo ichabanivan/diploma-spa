@@ -3,8 +3,8 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 
 // local dependencies
-import { prepareController } from '../../../services/controller';
-import instanceNEWS from '../../../services/api.service';
+import instanceNEWS from 'services/api.service';
+import { prepareController } from 'services/controller';
 
 // configure
 const initial = {
@@ -18,7 +18,7 @@ const initial = {
 
 export const controller = prepareController({
   initial,
-  prefix: 'category',
+  prefix: 'data-api',
   types: ['INITIALIZE'],
   subscriber: function * () {
     yield takeEvery(controller.TYPE.INITIALIZE, initializeSaga);
@@ -26,30 +26,32 @@ export const controller = prepareController({
 });
 export default controller;
 
-function * initializeSaga ({ type, payload }) {
+function * initializeSaga ({ type }) {
   yield put(controller.action.updateCtrl({ disabled: false }));
   try {
     const main = yield call(instanceNEWS, {
       url: '/everything',
       params: {
-        q: payload?.category || 'all',
+        q: 'Ukraine',
         sortBy: 'publishedAt',
         apiKey: 'f01c948178be420fb162319fa7f9ff37'
       }
     });
+    console.log(JSON.stringify(main))
     const aside = yield call(instanceNEWS, {
       url: '/everything',
       params: {
-        q: 'all',
+        q: 'sport',
         pageSize: 10,
         sortBy: 'publishedAt',
         apiKey: 'f01c948178be420fb162319fa7f9ff37'
       }
     });
+    console.log(JSON.stringify(aside))
+
     yield put(controller.action.updateCtrl({
       list: main?.articles,
       aside: aside?.articles,
-      category: payload.category,
     }));
   } catch (error) {
     console.error(error);
