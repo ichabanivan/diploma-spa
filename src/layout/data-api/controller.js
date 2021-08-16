@@ -37,7 +37,6 @@ function * initializeSaga ({ type }) {
         apiKey: 'f01c948178be420fb162319fa7f9ff37'
       }
     });
-    console.log(JSON.stringify(main))
     const aside = yield call(instanceNEWS, {
       url: '/everything',
       params: {
@@ -47,8 +46,6 @@ function * initializeSaga ({ type }) {
         apiKey: 'f01c948178be420fb162319fa7f9ff37'
       }
     });
-    console.log(JSON.stringify(aside))
-
     yield put(controller.action.updateCtrl({
       list: main?.articles,
       aside: aside?.articles,
