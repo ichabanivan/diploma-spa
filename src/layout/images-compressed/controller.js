@@ -1,9 +1,8 @@
 
 // outsource dependencies
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 
 // local dependencies
-import instanceNEWS from 'services/api.service';
 import { prepareController } from 'services/controller';
 
 import aside from './aside.json';
@@ -21,7 +20,7 @@ const initial = {
 
 export const controller = prepareController({
   initial,
-  prefix: 'data-api',
+  prefix: 'data-compressed',
   types: ['INITIALIZE'],
   subscriber: function * () {
     yield takeEvery(controller.TYPE.INITIALIZE, initializeSaga);

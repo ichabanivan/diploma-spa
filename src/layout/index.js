@@ -12,6 +12,7 @@ import DataApi from './data-api';
 import DataLocal from './data-local';
 import ImagesOriginal from './images-original';
 import ImagesCompressed from './images-compressed';
+import ImagesResized from './images-resized';
 
 import List from './list';
 import Category from './category';
@@ -33,7 +34,7 @@ export default memo(() => <>
           className="bg-transparent border-0 text-white"
           to={ROUTES.NEWS_DATA_API.LINK()}
         >
-          API Data
+          Data from API
         </ListGroupItem>
         <ListGroupItem
           tag={Link}
@@ -49,6 +50,13 @@ export default memo(() => <>
         >
           Images Compressed
         </ListGroupItem>
+        <ListGroupItem
+          tag={Link}
+          className="bg-transparent border-0 text-white"
+          to={ROUTES.NEWS_IMAGES_RESIZED.LINK()}
+        >
+          Images Cropped
+        </ListGroupItem>
       </ListGroup>
     </nav>
   </header>
@@ -58,6 +66,7 @@ export default memo(() => <>
       <Route path={ROUTES.NEWS_DATA_API.ROUTE} component={DataApi} />
       <Route path={ROUTES.NEWS_CATEGORY.ROUTE} component={Category} />
       <Route path={ROUTES.NEWS_DATA_LOCAL.ROUTE} component={DataLocal} />
+      <Route path={ROUTES.NEWS_IMAGES_RESIZED.ROUTE} component={ImagesResized} />
       <Route path={ROUTES.NEWS_IMAGES_ORIGINAL.ROUTE} component={ImagesOriginal} />
       <Route path={ROUTES.NEWS_IMAGES_COMPRESSED.ROUTE} component={ImagesCompressed} />
       <Redirect to={ROUTES.NEWS_LIST.LINK()} />

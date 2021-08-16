@@ -29,7 +29,7 @@ export default memo(() => {
     <Container>
       <Row className="mb-3 py-3">
         <Col xs="8" tag="h1" className="mb-0 text-capitalize">
-          Data from API
+          Local Data
           { disabled ? <Spinner active /> : null }
         </Col>
         <Col xs="4" tag="p" className="mb-0 d-flex align-items-center justify-content-end">

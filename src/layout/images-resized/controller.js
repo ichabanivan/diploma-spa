@@ -20,7 +20,7 @@ const initial = {
 
 export const controller = prepareController({
   initial,
-  prefix: 'data-original',
+  prefix: 'data-resized',
   types: ['INITIALIZE'],
   subscriber: function * () {
     yield takeEvery(controller.TYPE.INITIALIZE, initializeSaga);
