@@ -44,11 +44,6 @@
     "husky": "^4.2.3",
     "node-sass": "^4.13.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run eslint"
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
