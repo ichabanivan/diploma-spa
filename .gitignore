@@ -72,7 +72,6 @@ app-config.js
 
 # results of build
 /coverage
-/build
 
 src/style/*.css
 !src/style/vendors/*.css
