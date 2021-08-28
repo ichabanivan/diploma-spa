@@ -3,6 +3,17 @@
 import qs from 'qs';
 import axios from 'axios';
 
+export const instanceJSON = axios.create({
+  paramsSerializer,
+  baseURL: 'https://api.jsonbin.io',
+  withCredentials: false,
+  headers: {
+    'Content-Type': 'application/json',
+  }
+});
+
+instanceJSON.interceptors.response.use(prepareResponse);
+
 // axios instance prepared for app
 const instanceNEWS = axios.create({
   paramsSerializer,

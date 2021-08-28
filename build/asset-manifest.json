@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "https://zanusilker.github.io/diploma-spa/build/static/css/main.7eeadd37.chunk.css",
-    "main.js": "https://zanusilker.github.io/diploma-spa/build/static/js/main.c99a948c.chunk.js",
-    "main.js.map": "https://zanusilker.github.io/diploma-spa/build/static/js/main.c99a948c.chunk.js.map",
+    "main.js": "https://zanusilker.github.io/diploma-spa/build/static/js/main.7524bb3f.chunk.js",
+    "main.js.map": "https://zanusilker.github.io/diploma-spa/build/static/js/main.7524bb3f.chunk.js.map",
     "runtime-main.js": "https://zanusilker.github.io/diploma-spa/build/static/js/runtime-main.15bcf6a8.js",
     "runtime-main.js.map": "https://zanusilker.github.io/diploma-spa/build/static/js/runtime-main.15bcf6a8.js.map",
-    "static/js/2.cabb493f.chunk.js": "https://zanusilker.github.io/diploma-spa/build/static/js/2.cabb493f.chunk.js",
-    "static/js/2.cabb493f.chunk.js.map": "https://zanusilker.github.io/diploma-spa/build/static/js/2.cabb493f.chunk.js.map",
+    "static/js/2.fb5dbdc4.chunk.js": "https://zanusilker.github.io/diploma-spa/build/static/js/2.fb5dbdc4.chunk.js",
+    "static/js/2.fb5dbdc4.chunk.js.map": "https://zanusilker.github.io/diploma-spa/build/static/js/2.fb5dbdc4.chunk.js.map",
     "static/js/3.dd8910b5.chunk.js": "https://zanusilker.github.io/diploma-spa/build/static/js/3.dd8910b5.chunk.js",
     "static/js/3.dd8910b5.chunk.js.map": "https://zanusilker.github.io/diploma-spa/build/static/js/3.dd8910b5.chunk.js.map",
     "index.html": "https://zanusilker.github.io/diploma-spa/build/index.html",
     "static/css/main.7eeadd37.chunk.css.map": "https://zanusilker.github.io/diploma-spa/build/static/css/main.7eeadd37.chunk.css.map",
-    "static/js/2.cabb493f.chunk.js.LICENSE.txt": "https://zanusilker.github.io/diploma-spa/build/static/js/2.cabb493f.chunk.js.LICENSE.txt",
+    "static/js/2.fb5dbdc4.chunk.js.LICENSE.txt": "https://zanusilker.github.io/diploma-spa/build/static/js/2.fb5dbdc4.chunk.js.LICENSE.txt",
     "static/media/placeholder.04228579.png": "https://zanusilker.github.io/diploma-spa/build/static/media/placeholder.04228579.png"
   },
   "entrypoints": [
     "static/js/runtime-main.15bcf6a8.js",
-    "static/js/2.cabb493f.chunk.js",
+    "static/js/2.fb5dbdc4.chunk.js",
     "static/css/main.7eeadd37.chunk.css",
-    "static/js/main.c99a948c.chunk.js"
+    "static/js/main.7524bb3f.chunk.js"
   ]
 }

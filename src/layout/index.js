@@ -15,7 +15,6 @@ import ImagesCompressed from './images-compressed';
 import ImagesResized from './images-resized';
 
 import List from './list';
-import Category from './category';
 
 export default memo(() => <>
   <header className="bg-dark p-4 d-flex justify-content-between">
@@ -64,7 +63,6 @@ export default memo(() => <>
     <Switch>
       <Route path={ROUTES.NEWS_LIST.ROUTE} component={List} />
       <Route path={ROUTES.NEWS_DATA_API.ROUTE} component={DataApi} />
-      <Route path={ROUTES.NEWS_CATEGORY.ROUTE} component={Category} />
       <Route path={ROUTES.NEWS_DATA_LOCAL.ROUTE} component={DataLocal} />
       <Route path={ROUTES.NEWS_IMAGES_RESIZED.ROUTE} component={ImagesResized} />
       <Route path={ROUTES.NEWS_IMAGES_ORIGINAL.ROUTE} component={ImagesOriginal} />
