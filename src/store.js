@@ -2,7 +2,7 @@
 // outsource dependencies
 import createSagaMiddleware from 'redux-saga';
 import { reducer as toastr } from 'react-redux-toastr';
-import { createHashHistory as createHistory } from 'history';
+import { createBrowserHistory as createHistory } from 'history';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { push, connectRouter, routerMiddleware as createRouterMiddleware, goBack } from 'connected-react-router';
 
