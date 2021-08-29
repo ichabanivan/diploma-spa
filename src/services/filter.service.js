@@ -1,6 +1,6 @@
 
 // outsource dependencies
-import _ from 'lodash';
+import { isString, isNumber, defaults } from 'lodash';
 
 /**
  * Filter service provide filters functionality within application
@@ -60,10 +60,10 @@ export class FilterService {
      * @returns {String}
      */
   static truncate (string = '', options) {
-    const { length, end, breakOnWord } = _.defaults(options, defaultTruncateOptions);
+    const { length, end, breakOnWord } = defaults(options, defaultTruncateOptions);
     // NOTE skip cases
     if (isNaN(length) || length <= 0) { return ''; }
-    if (!_.isString(string) || string.length <= length) { return ''; }
+    if (!isString(string) || string.length <= length) { return ''; }
     // NOTE cut source
     string = string.substring(0, length);
     // NOTE cut more to the spice symbol
@@ -85,9 +85,9 @@ export class FilterService {
      * @returns {String}
      */
   static duration (number = 0, options) {
-    let { format, regDay, regHour, regMin, regSec } = _.defaults(options, defaultDurationOptions);
-    number = _.isNumber(number) ? Math.abs(number) : 0;
-    format = _.isString(format) ? format : `${regDay}d ${regHour}h ${regMin}m ${regSec}s`;
+    let { format, regDay, regHour, regMin, regSec } = defaults(options, defaultDurationOptions);
+    number = isNumber(number) ? Math.abs(number) : 0;
+    format = isString(format) ? format : `${regDay}d ${regHour}h ${regMin}m ${regSec}s`;
     let days = 0,
       hours = 0,
       minutes = 0;

@@ -1,6 +1,6 @@
 
 // outsource dependencies
-import _ from 'lodash';
+import { isFunction, isString, isUndefined, isEqual } from 'lodash';
 
 // local dependencies
 
@@ -12,12 +12,12 @@ export default class Param {
     }
 
     applyValidOptions = options => {
-      this.name = _.isString(options.name) ? options.name : 'unknown_field_name';
-      this.short = _.isString(options.short) ? options.short : this.name;
-      this.defaults = !_.isUndefined(options.defaults) ? options.defaults : void(0);
-      this.isValid = _.isFunction(options.isValid) ? options.isValid : this.isValid;
-      this.archive = _.isFunction(options.archive) ? options.archive : this.archive;
-      this.extract = _.isFunction(options.extract) ? options.extract : this.extract;
+      this.name = isString(options.name) ? options.name : 'unknown_field_name';
+      this.short = isString(options.short) ? options.short : this.name;
+      this.defaults = !isUndefined(options.defaults) ? options.defaults : void(0);
+      this.isValid = isFunction(options.isValid) ? options.isValid : this.isValid;
+      this.archive = isFunction(options.archive) ? options.archive : this.archive;
+      this.extract = isFunction(options.extract) ? options.extract : this.extract;
     };
 
     archive = v => v;
@@ -29,7 +29,7 @@ export default class Param {
     to = (data, store) => {
       const value = this.archive(data[this.name]);
       const def = this.archive(this.defaults);
-      if (this.isValid(value) && !_.isEqual(value, def)) {
+      if (this.isValid(value) && !isEqual(value, def)) {
         store[this.short] = value;
       }
     };

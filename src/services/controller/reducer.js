@@ -1,6 +1,6 @@
 
 // outsource dependencies
-import _ from 'lodash';
+import { get } from 'lodash';
 
 // NOTE CSD - controller stored data
 const CSD_REDUCER_PATH = 'controller';
@@ -24,17 +24,17 @@ export const clearCSD = name => () => clearCSDAction(name);
 export const updateCSD = name => payload => updateCSDAction(name, payload);
 
 /* SELECTOR */
-const selector = state => _.get(state, CSD_REDUCER_PATH);
-export const selectCSD = name => state => _.get(selector(state), name) || {};
-export const selectMetaCSD = name => state => _.get(selector(state), `META.${name}`) || {};
+const selector = state => get(state, CSD_REDUCER_PATH);
+export const selectCSD = name => state => get(selector(state), name) || {};
+export const selectMetaCSD = name => state => get(selector(state), `META.${name}`) || {};
 
 /* REDUCER */
 export const reducer = (state = {}, action) => {
   // NOTE "name" it's required unique identifier for dynamic reducers
   const { type, name, payload = {}, initial = {} } = action;
-  const current = _.get(state, name) || {};
-  const currentMeta = _.get(state, `META.${name}`) || {};
-  const currentInitial = _.get(state, `META.${name}.initial`) || {};
+  const current = get(state, name) || {};
+  const currentMeta = get(state, `META.${name}`) || {};
+  const currentInitial = get(state, `META.${name}.initial`) || {};
 
   switch (type) {
     default: return state;

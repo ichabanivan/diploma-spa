@@ -1,21 +1,21 @@
 
 // outsource dependencies
-import _ from 'lodash';
+import { uniqueId, isArray, isObject, camelCase } from 'lodash';
 
 // local dependencies
 import { selectCSD, updateCSD, clearCSD } from './reducer';
 
 export default options => {
-  const ctrlName = _.uniqueId(typeof options.prefix === 'string' ? options.prefix : 'controller');
+  const ctrlName = uniqueId(typeof options.prefix === 'string' ? options.prefix : 'controller');
   if (!isGeneratorFn(options.subscriber)) {
     throw new Error(`Controller(${ctrlName}) "subscriber" is required and should be generator "sagas"`);
   }
 
-  const createTypes = _.isArray(options.types) ? options.types : [];
+  const createTypes = isArray(options.types) ? options.types : [];
   createTypes.map(type => type.toUpperCase());
 
   const subscriber = options.subscriber;
-  const initial = _.isObject(options.initial) ? options.initial : {};
+  const initial = isObject(options.initial) ? options.initial : {};
   // predefined actions for reducer data
   const action = {
     clearCtrl: clearCSD(ctrlName),
@@ -27,7 +27,7 @@ export default options => {
     // create unique action type
     TYPE[type] = `@${ctrlName}/${type}`;
     // create action creator for this type
-    return action[_.camelCase(type)] = payload => ({ type: TYPE[type], payload });
+    return action[camelCase(type)] = payload => ({ type: TYPE[type], payload });
   });
 
   return {
