@@ -82,3 +82,28 @@ https://res.cloudinary.com/djpq07fwn/image/upload/v1627996548/images-compressed/
 
 Images resized
 https://res.cloudinary.com/djpq07fwn/image/upload/v1627996546/images-resized/1.jpg
+
+## Heroku
+Install the Heroku CLI
+Download and install the Heroku CLI.
+
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+
+```bash
+heroku login
+```
+Clone the repository
+Use Git to clone diploma-react-spa's source code to your local machine.
+
+```bash
+heroku git:clone -a diploma-react-spa
+cd diploma-react-spa
+```
+Deploy your changes
+Make some changes to the code you just cloned and deploy them to Heroku using Git.
+
+```bash
+git add .
+git commit -am "make it better"
+git push heroku master
+```
